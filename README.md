@@ -52,6 +52,13 @@ a backend for executing transcode jobs.
 3) Access the Plex dashboard, either using `kubectl port-forward`, or using
 the services LoadBalancer IP (via `kubectl get service`), or alternatively use
 the ingress provisioned in the previous step (with `--set ingress.enabled=true`).
+Note: If you want to access via the LoadBalancer IP, you will need to set the 'type' to 
+LoadBalancer and specify the LoadBalancer IP. This can either be set in the `values.yaml` file or set at install e.g. 
+
+```bash
+--set service.type=LoadBalancer \
+--set service.loadBalancerIP=<your public ip>
+```
 
 4) Visit Settings->Server->Network and add your pod network subnet to the
 `List of IP addresses and networks that are allowed without auth` (near the
